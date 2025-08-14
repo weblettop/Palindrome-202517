@@ -7,6 +7,9 @@
  */
 
 function isPalindrome(str) {
+  if (typeof str !== 'string') 
+    return false
+  
   const cleanStr = str.toLowerCase().replace(/[^a-zа-яґєії0-9]/gu, '')
 
   let left = 0
