@@ -6,18 +6,23 @@
  *
  */
 
-const isPolindrome = (str) => {
-  if (typeof str !== 'string') {
-    return false
-  }
-  const cleanStr = str.toLowerCase().replace(/[^a-zа-яґєії0-9]/giu, '');
-                                     
+function isPalindrome(str) {
+  const cleanStr = str.toLowerCase().replace(/[^a-zа-яґєії0-9]/gu, '')
 
-  return cleanStr === cleanStr.split('').reverse().join('')
+  let left = 0
+  let right = cleanStr.length - 1
+  while (left < right) {
+    if (cleanStr[left] !== cleanStr[right]) {
+      return false
+    }
+    left++
+    right--
+  }
+  return true
 }
 
-console.log(isPolindrome('Кит на морі романтик'))
-console.log(isPolindrome('Pull up if I pull up**'))
-console.log(isPolindrome('Pоза упала на лапу Азора'))
-console.log(isPolindrome('**/;lol '))
-console.log(isPolindrome(123321))
+console.log(isPalindrome('Кит на морі романтик'))
+console.log(isPalindrome('Pull up if I pull up**'))
+console.log(isPalindrome('Pоза упала на лапу Азора'))
+console.log(isPalindrome('**/;lol '))
+console.log(isPalindrome(123321))
